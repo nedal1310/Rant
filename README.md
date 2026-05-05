@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<!-- <div class="d-flex flex-column justify-content-center w-100 h-100">
 
-## Getting Started
+	<div class="d-flex flex-column justify-content-center align-items-center">
+		<h1 class="fw-light text-white m-0">Animated Gradient Background</h1>
+		<div class="btn-group my-5">
+			<a href="https://codepen.io/P1N2O/details/pyBNzX" target="_blank" class="btn btn-outline-light" aria-current="page"><i class="fas fa-circle-info me-2"></i> PEN DETAILS</a>
+			<a href="https://codepen.io/P1N2O/full/pyBNzX" target="_blank" class="btn btn-outline-light">FULL SCREEN <i class="fas fa-expand ms-2"></i></a>
+		</div>
+		<a href="https://github.com/p1n2o" class="text-decoration-none">
+			<h5 class="fw-light text-white m-0">— P1N2O —</h5>
+		</a>
+	</div>
+</div>
+</div>
 
-First, run the development server:
+css
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+/client
+  /app
+    /layout.tsx
+    /page.tsx              # Home Page 👈
+    
+    /sign-in
+      /page.tsx
+    /sign-up
+      /page.tsx
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    /dashboard             # after login
+      /page.tsx
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    /journal
+      /page.tsx
 
-## Learn More
+    /mood
+      /page.tsx
 
-To learn more about Next.js, take a look at the following resources:
+    /chat
+      /page.tsx
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  /components
+    Navbar.tsx
+    Hero.tsx
+    FeatureCard.tsx
+    Footer.tsx
+    ThemeToggle.tsx
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  /lib
+    api.ts                 # axios/fetch setup
+    utils.ts
 
-## Deploy on Vercel
+  /hooks
+    useTheme.ts
+    useUser.ts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  /styles
+    globals.css
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  /types
+    index.ts
+
+  /constants
+    index.ts -->
