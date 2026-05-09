@@ -5,6 +5,7 @@ import { AuroraBackground } from "@/components/AuroraBackground";
 import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import 'flowbite';
 
 
 const geistSans = Geist({
@@ -31,20 +32,28 @@ export default function RootLayout({
     <ClerkProvider
       signInUrl="/sign-in"
       signUpUrl="/sign-up">
-      <html
-        lang="en"
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <body className="min-h-screen flex flex-col">
-          {/* global background */}
-          <AuroraBackground />
+     <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    >
+      <body className="min-h-screen flex flex-col">
+
+        {/*  Background (lowest layer) */}
+        <AuroraBackground />
+
+        {/*  All UI goes ABOVE background */}
+        <div className="relative z-10 flex flex-col min-h-screen">
           <Navbar />
-          <div className=" grow">
+
+          <div className="grow flex flex-col">
             {children}
           </div>
+
           <Footer />
-        </body>
-      </html>
+        </div>
+
+      </body>
+    </html>
     </ClerkProvider>
 
   );

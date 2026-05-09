@@ -5,7 +5,7 @@ import Message from "@/models/Message";
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
-// ✅ Per-user rate limit (better)
+// Per-user rate limit
 const userLimits = new Map();
 
 function checkRateLimit(userId) {
@@ -23,7 +23,7 @@ function checkRateLimit(userId) {
     user.lastReset = now;
   }
 
-  if (user.count >= 30) return false; // better limit
+  if (user.count >= 30) return false; // limiting
 
   user.count++;
   return true;
@@ -33,7 +33,7 @@ export async function POST(req) {
   try {
     await connectDB();
 
-    // ✅ FIX: extract userId
+    //  extract userId
     const { messages, userId } = await req.json();
 
     if (!userId) {
@@ -43,7 +43,7 @@ export async function POST(req) {
       );
     }
 
-    // ✅ rate limit per user
+    //  rate limit per user
     if (!checkRateLimit(userId)) {
       return Response.json(
         { reply: "Daily limit reached 💙" },
@@ -52,12 +52,12 @@ export async function POST(req) {
     }
 
     if (!messages || messages.length === 0) {
-      return Response.json({ reply: "Say something 🙂" });
+      return Response.json({ reply: "Say something please" });
     }
 
     const today = new Date().toISOString().split("T")[0];
 
-    // 1️⃣ Get or create chat
+    // 1 Get or create chat
     let chat = await Chat.findOne({ clerkId: userId, date: today });
 
     if (!chat) {
@@ -68,11 +68,11 @@ export async function POST(req) {
       });
     }
 
-    // 2️⃣ Save user message
+    // 2️ Save user message
     const lastUserMessage = messages[messages.length - 1]?.content;
 
     if (!lastUserMessage) {
-      return Response.json({ reply: "Empty message ❌" });
+      return Response.json({ reply: "Empty message " });
     }
 
     await Message.create({
@@ -81,7 +81,7 @@ export async function POST(req) {
       content: lastUserMessage,
     });
 
-    // 3️⃣ AI response (optimized context)
+    // 3️ AI response (optimized context)
     const context = messages.slice(-3).map(m => ({
       role: m.role === "user" ? "user" : "assistant",
       content: m.content,
@@ -93,7 +93,7 @@ export async function POST(req) {
         {
           role: "system",
           content:
-            "You are Oli, an therapy owl friend who is wise and kind. Keep replies to 2-3 sentences. Rarely say hoot.",
+            "You are Oli, an therapy owl friend who is wise and kind. Keep replies to 2-3 sentences. You are made by Nedal Fazli, she is a SDE",
         },
         ...context,
       ],
@@ -103,7 +103,7 @@ export async function POST(req) {
     const reply =
       result.choices[0]?.message?.content || "I'm here for you 💙";
 
-    // 4️⃣ Save AI message
+    // 4️ Save AI message
     await Message.create({
       chatId: chat._id,
       role: "ai",

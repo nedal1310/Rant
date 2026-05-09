@@ -2,7 +2,7 @@ import { SignUp } from "@clerk/nextjs";
 
 const signup = () => {
   return (
-   <div className="flex justify-center items-center h-full bg-transparent  p-6 ">
+   <div className="flex justify-center items-center min-h-[calc(100vh-100px)] bg-transparent p-6 z-10">
    
                <SignUp
                    appearance={{

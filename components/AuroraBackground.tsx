@@ -26,10 +26,20 @@ export function AuroraBackground() {
   return (
     <motion.div
       style={{ background }}
-      className="fixed inset-0 -z-10 "
+      className="fixed inset-0 z-0 pointer-events-none"
+    // no extra classes needed, fixed inset-0 already handles it
     >
-      <Canvas>
-        <Stars radius={50} count={2000} factor={4} fade speed={2} />
+      <Canvas
+        style={{ position: "absolute", inset: 0 }}
+        gl={{ antialias: false, powerPreference: "low-power" }}
+      >
+        <Stars
+          radius={50}
+          count={typeof window !== "undefined" && window.innerWidth < 768 ? 800 : 2000}
+          factor={4}
+          fade
+          speed={2}
+        />
       </Canvas>
     </motion.div>
   );
