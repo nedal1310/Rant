@@ -1,4 +1,7 @@
-# rant 🌙
+<h1>
+  Rant 
+  <img src="public/logo.png" width="40" />
+</h1>
 
 > some thoughts are easier to type than say out loud.
 
@@ -61,6 +64,18 @@ oli isn't a therapist. just something that listens. which is honestly enough som
 → [rant-taupe.vercel.app](https://rant-taupe.vercel.app)
 
 &nbsp;
+<img width="1901" height="867" alt="Screenshot 2026-05-10 140101" src="https://github.com/user-attachments/assets/c9663230-4a4c-428a-bf9e-c7606dd64074" />
+&nbsp;
+<img width="1895" height="863" alt="Screenshot 2026-05-10 140131" src="https://github.com/user-attachments/assets/456b9c51-f8d3-4091-aeac-83f4f80d033e" />
+&nbsp;
+<img width="1918" height="857" alt="Screenshot 2026-05-10 140320" src="https://github.com/user-attachments/assets/572a7c44-6b90-4cae-a397-cd4f22017869" />
+&nbsp;
+<img width="1917" height="862" alt="Screenshot 2026-05-10 140339" src="https://github.com/user-attachments/assets/3ba896f4-d854-433a-b3b0-fc87ad32940c" />
+&nbsp;
+
+
+
+
 
 ---
 
