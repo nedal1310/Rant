@@ -1,80 +1,67 @@
-<!-- <div class="d-flex flex-column justify-content-center w-100 h-100">
+# rant 🌙
 
-	<div class="d-flex flex-column justify-content-center align-items-center">
-		<h1 class="fw-light text-white m-0">Animated Gradient Background</h1>
-		<div class="btn-group my-5">
-			<a href="https://codepen.io/P1N2O/details/pyBNzX" target="_blank" class="btn btn-outline-light" aria-current="page"><i class="fas fa-circle-info me-2"></i> PEN DETAILS</a>
-			<a href="https://codepen.io/P1N2O/full/pyBNzX" target="_blank" class="btn btn-outline-light">FULL SCREEN <i class="fas fa-expand ms-2"></i></a>
-		</div>
-		<a href="https://github.com/p1n2o" class="text-decoration-none">
-			<h5 class="fw-light text-white m-0">— P1N2O —</h5>
-		</a>
-	</div>
-</div>
-</div>
+> some thoughts are easier to type than say out loud.
 
-css
-body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
-}
+a calm little corner of the internet. talk to oli, track your mood, breathe for a second. that's it.
 
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
+&nbsp;
 
-/client
-  /app
-    /layout.tsx
-    /page.tsx              # Home Page 👈
-    
-    /sign-in
-      /page.tsx
-    /sign-up
-      /page.tsx
+## what it does
 
-    /dashboard             # after login
-      /page.tsx
+- **oli** — an ai companion that just... listens. no judgment, no agenda.
+- **mood tracking** — log how you're feeling, day by day
+- **breathing exercises** — for when things get loud
+- **chat history** — so you can look back if you want to
 
-    /journal
-      /page.tsx
+&nbsp;
 
-    /mood
-      /page.tsx
+## stack
 
-    /chat
-      /page.tsx
+```
+Next.js  ·  React  ·  Tailwind CSS
+MongoDB  ·  Clerk  ·  Groq API  ·  Vercel
+```
 
-  /components
-    Navbar.tsx
-    Hero.tsx
-    FeatureCard.tsx
-    Footer.tsx
-    ThemeToggle.tsx
+&nbsp;
 
-  /lib
-    api.ts                 # axios/fetch setup
-    utils.ts
+## run it locally
 
-  /hooks
-    useTheme.ts
-    useUser.ts
+```bash
+git clone https://github.com/yourusername/rant.git
+npm install
+```
 
-  /styles
-    globals.css
+add a `.env.local`:
 
-  /types
-    index.ts
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+MONGODB_URI=
+GROQ_API_KEY=
+```
 
-  /constants
-    index.ts -->
+```bash
+npm run dev
+```
+
+&nbsp;
+
+## why
+
+most mental health apps feel clinical. or corporate. or both.
+
+this one's meant to feel like opening your notes app at 2am — familiar, quiet, no pressure.
+
+oli isn't a therapist. just something that listens. which is honestly enough sometimes.
+
+&nbsp;
+
+## live
+
+→ [rant-taupe.vercel.app](https://rant-taupe.vercel.app)
+
+&nbsp;
+
+---
+
+*still improving. still overthinking the ui at 3am. but deployed.*
